@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Vasavi Poppopula</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(108, 99, 255, 0.15);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--primary);
+        }
+        
+        .project-content {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .tech-tag {
+            background: rgba(108, 99, 255, 0.1);
+            color: var(--primary);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+        
+        .feature-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .feature-list li i {
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            top: 3px;
+        }
+        
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+               <a href="index.html" class="logo">
+    <div class="logo-img" style="overflow: hidden; border-radius: 50%; width: 40px; height: 40px;">
+        <img src="image.png" alt="Vasavi" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+    Vasavi
+</a>
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Projects Section -->
+    <section id="projects" style="padding: 80px 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+                <p style="margin-top: 20px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Here are the projects mentioned in my resume with detailed descriptions.
+                </p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1: Employee Salary Prediction -->
+                <div class="project-card">
+                    <img src="images/salary-prediction-image.png" alt="Employee Salary Prediction Project" class="project-image">
+                    <div class="project-content">
+                        <h3>Employee Salary Prediction</h3>
+                        <p style="line-height: 1.7; margin-bottom: 20px; flex: 1;">
+                            Built a web application using Linear Regression to predict employee salaries based on various factors. 
+                            This project involved complete machine learning workflow from data preprocessing to deployment.
+                        </p>
+                        
+                        <div style="margin-bottom: 25px;">
+                            <h4 style="color: var(--primary); margin-bottom: 10px; font-size: 1.1rem;">Technologies Used:</h4>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Flask</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">HTML</span>
+                                <span class="tech-tag">CSS</span>
+                                <span class="tech-tag">Linear Regression</span>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 25px; flex: 1;">
+                            <h4 style="color: var(--primary); margin-bottom: 10px; font-size: 1.1rem;">Key Features:</h4>
+                            <ul class="feature-list" style="list-style: none; padding-left: 0;">
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    Performed data preprocessing and cleaning
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    Trained Linear Regression model for salary prediction
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    Deployed model using Flask backend
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    Designed clean UI with real-time predictions
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div style="margin-top: auto;">
+                            <a href="https://github.com/vasavi297/Employee-salary-prediction-Vasavi.git" target="_blank" class="btn" style="width: 100%; text-align: center;">
+                                <i class="fab fa-github" style="margin-right: 8px;"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2: Aquaculture Aid -->
+                <div class="project-card">
+                    <img src="images/csp-image.png" alt="Aquaculture Aid Project" class="project-image">
+                    <div class="project-content">
+                        <h3>Aquaculture Aid</h3>
+                        <p style="line-height: 1.7; margin-bottom: 20px; flex: 1;">
+                            Developed a responsive web platform to support fishermen by providing access to government welfare schemes, 
+                            community information, and resources for the aquaculture industry.
+                        </p>
+                        
+                        <div style="margin-bottom: 25px;">
+                            <h4 style="color: #36D1DC; margin-bottom: 10px; font-size: 1.1rem;">Technologies Used:</h4>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;">
+                                <span style="background: rgba(54, 209, 220, 0.1); color: #36D1DC; padding: 6px 15px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
+                                    HTML
+                                </span>
+                                <span style="background: rgba(54, 209, 220, 0.1); color: #36D1DC; padding: 6px 15px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
+                                    CSS
+                                </span>
+                                <span style="background: rgba(54, 209, 220, 0.1); color: #36D1DC; padding: 6px 15px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
+                                    JavaScript
+                                </span>
+                                <span style="background: rgba(54, 209, 220, 0.1); color: #36D1DC; padding: 6px 15px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">
+                                    Responsive Design
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-bottom: 25px; flex: 1;">
+                            <h4 style="color: #36D1DC; margin-bottom: 10px; font-size: 1.1rem;">Key Features:</h4>
+                            <ul class="feature-list" style="list-style: none; padding-left: 0;">
+                                <li>
+                                    <i class="fas fa-check-circle" style="color: #36D1DC;"></i>
+                                    Fully responsive web platform accessible on all devices
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle" style="color: #36D1DC;"></i>
+                                    Information about government welfare schemes for fishermen
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle" style="color: #36D1DC;"></i>
+                                    Community resources and support information
+                                </li>
+                                <li>
+                                    <i class="fas fa-check-circle" style="color: #36D1DC;"></i>
+                                    User-friendly interface for easy navigation
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div style="margin-top: auto;">
+                            <a href="https://github.com/vasavi297/Aquaculture-Aid.git" target="_blank" class="btn" style="width: 100%; text-align: center; background: #36D1DC;">
+                                <i class="fab fa-github" style="margin-right: 8px;"></i> View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- GitHub Link -->
+            <div style="text-align: center; margin-top: 60px; padding: 40px; background: rgba(108, 99, 255, 0.05); border-radius: var(--radius);">
+                <h3 style="margin-bottom: 20px;">View All Projects on GitHub</h3>
+                <p style="margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Explore more of my work and code repositories on GitHub.
+                </p>
+                <a href="https://github.com/vasavi297" target="_blank" class="btn" style="font-size: 1.1rem; padding: 15px 40px;">
+                    <i class="fab fa-github" style="margin-right: 10px;"></i> Visit My GitHub Profile
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div style="color: white; margin-bottom: 20px;">
+                <h3 style="color: white; margin-bottom: 15px;">Vasavi Poppopula</h3>
+                <p>B.Tech AI & ML Student | Aspiring Developer</p>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://github.com/vasavi297" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/vasavi29" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.geeksforgeeks.org/profile/vasavi25zpd" class="social-link" target="_blank">
+                    <i class="fas fa-code"></i>
+                </a>
+                <a href="https://leetcode.com/u/Vasavi_297/" class="social-link" target="_blank">
+                    <i class="fas fa-laptop-code"></i>
+                </a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Vasavi Poppopula. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

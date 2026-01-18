@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Vasavi Poppopula</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Success/Error Messages - FIXED: Removed display: block */
+        .form-message {
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            border-radius: var(--radius);
+            display: none; /* Hidden by default */
+            text-align: center;
+            font-weight: 600;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .form-success {
+            background-color: rgba(40, 167, 69, 0.1);
+            color: #28a745;
+            border: 1px solid rgba(40, 167, 69, 0.3);
+            /* REMOVED: display: block */
+        }
+        
+        .form-error {
+            background-color: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+            border: 1px solid rgba(220, 53, 69, 0.3);
+            /* REMOVED: display: block */
+        }
+        
+        /* Loading state */
+        .btn-loading {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        
+        .btn-loading .fa-spinner {
+            display: inline-block !important;
+        }
+        
+        .btn-loading .fa-paper-plane {
+            display: none;
+        }
+        
+        .fa-spinner {
+            display: none;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (keep your existing navigation) -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <div class="logo-img" style="overflow: hidden; border-radius: 50%; width: 40px; height: 40px;">
+                        <img src="image.png" alt="Vasavi" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    Vasavi
+                </a>
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section id="contact" style="padding: 80px 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+                <p style="margin-top: 20px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Feel free to reach out for opportunities, collaborations, or just to connect!
+                </p>
+            </div>
+            
+            <!-- Form Messages (Hidden by default) -->
+            <div id="formSuccess" class="form-message form-success" style="display: none;">
+                <i class="fas fa-check-circle"></i> Message sent successfully! I'll get back to you soon.
+            </div>
+            
+            <div id="formError" class="form-message form-error" style="display: none;">
+                <i class="fas fa-exclamation-circle"></i> Failed to send message. Please try again or email me directly.
+            </div>
+            
+            <div class="contact-container" style="display: flex; gap: 50px; max-width: 1000px; margin: 0 auto; flex-wrap: wrap;">
+                <!-- Contact Info (Keep your existing contact info) -->
+                <div style="flex: 1; min-width: 300px;">
+                    <div style="background: white; padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); height: 100%;">
+                        <h3>Get in Touch</h3>
+                        <p style="margin-bottom: 40px;">I'm currently seeking internship opportunities and would love to connect with professionals in the field.</p>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 9492572155</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>vasavi2972006@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div>
+                                <h4>LinkedIn</h4>
+                                <p>linkedin.com/in/vasavi29</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div>
+                                <h4>GitHub</h4>
+                                <p>github.com/vasavi297</p>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--gray);">
+                            <h4 style="margin-bottom: 15px;">Quick Links</h4>
+                            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                                <a href="Resume-Vasavi.pdf" download class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">
+                                    <i class="fas fa-download"></i> Resume
+                                </a>
+                                <a href="projects.html" class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">
+                                    <i class="fas fa-laptop-code"></i> Projects
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form (UPDATED FOR FORMSPREE) -->
+                <div style="flex: 1; min-width: 300px;">
+                    <div style="background: white; padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); height: 100%;">
+                        <h3>Send a Message</h3>
+                        
+                        <!-- FORMSPREE FORM -->
+                        <form id="contactForm" action="https://formspree.io/f/xreeplka" method="POST">
+                            <!-- Replace YOUR_FORM_ID_HERE with your actual Formspree ID -->
+                            
+                            <div class="form-group">
+                                <label for="name" style="display: block; margin-bottom: 8px; font-weight: 600;">Your Name *</label>
+                                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" style="display: block; margin-bottom: 8px; font-weight: 600;">Your Email *</label>
+                                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" style="display: block; margin-bottom: 8px; font-weight: 600;">Your Message *</label>
+                                <textarea id="message" name="message" rows="6" placeholder="Tell me about your opportunity or inquiry..." required></textarea>
+                            </div>
+                            
+                            <!-- Hidden fields for better email formatting -->
+                            <input type="hidden" name="_subject" value="New Message from Portfolio">
+                            <input type="text" name="_gotcha" style="display:none">
+                            
+                            <button type="submit" id="submitBtn" class="btn" style="width: 100%;">
+                                <i class="fas fa-paper-plane"></i>
+                                <i class="fas fa-spinner"></i>
+                                Send Message
+                            </button>
+                        </form>
+                        
+                        <!-- Direct Email Option -->
+                        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--gray); text-align: center;">
+                            <p style="margin-bottom: 15px; color: var(--text);">Or email me directly:</p>
+                            <a href="mailto:vasavi2972006@gmail.com?subject=Portfolio Inquiry" class="btn btn-secondary" style="width: 100%;">
+                                <i class="fas fa-envelope"></i> Email Directly
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (keep your existing footer) -->
+    <footer>
+        <div class="container">
+            <div style="color: white; margin-bottom: 20px;">
+                <h3 style="color: white; margin-bottom: 15px;">Vasavi Poppopula</h3>
+                <p>B.Tech AI & ML Student | Aspiring Developer</p>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://github.com/vasavi297" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/vasavi29" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://www.geeksforgeeks.org/profile/vasavi25zpd" class="social-link" target="_blank">
+                    <i class="fas fa-code"></i>
+                </a>
+                <a href="https://leetcode.com/u/Vasavi_297/" class="social-link" target="_blank">
+                    <i class="fas fa-laptop-code"></i>
+                </a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Vasavi Poppopula. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    
+    <!-- Formspree Submission Script - FIXED -->
+    <script>
+        // Form submission handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const successMsg = document.getElementById('formSuccess');
+            const errorMsg = document.getElementById('formError');
+            
+            // Ensure messages are hidden on page load
+            if (successMsg) successMsg.style.display = 'none';
+            if (errorMsg) errorMsg.style.display = 'none';
+            
+            if (form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    // Show loading state
+                    submitBtn.classList.add('btn-loading');
+                    submitBtn.disabled = true;
+                    
+                    // Hide previous messages
+                    if (successMsg) successMsg.style.display = 'none';
+                    if (errorMsg) errorMsg.style.display = 'none';
+                    
+                    try {
+                        // Get form data
+                        const formData = new FormData(form);
+                        
+                        // Send to Formspree
+                        const response = await fetch(form.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+                        
+                        if (response.ok) {
+                            // Success
+                            if (successMsg) {
+                                successMsg.style.display = 'flex';
+                                // Scroll to success message
+                                setTimeout(() => {
+                                    successMsg.scrollIntoView({ 
+                                        behavior: 'smooth', 
+                                        block: 'center' 
+                                    });
+                                }, 100);
+                            }
+                            form.reset();
+                        } else {
+                            // Error
+                            throw new Error('Form submission failed');
+                        }
+                    } catch (error) {
+                        // Show error message
+                        if (errorMsg) {
+                            errorMsg.style.display = 'flex';
+                            // Scroll to error message
+                            setTimeout(() => {
+                                errorMsg.scrollIntoView({ 
+                                    behavior: 'smooth', 
+                                    block: 'center' 
+                                });
+                            }, 100);
+                        }
+                    } finally {
+                        // Reset button state
+                        submitBtn.classList.remove('btn-loading');
+                        submitBtn.disabled = false;
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -278,33 +278,41 @@
                 </div>
                 
                 <!-- Contact Form -->
-                <div style="flex: 1; min-width: 300px;">
-                    <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); height: 100%;">
-                        <h3 style="margin-bottom: 20px; color: #333;">Send a Message</h3>
-                        
-                        <!-- Contact Form -->
-                        <form id="contactForm">
-                            <div class="form-group">
-                                <label for="name">Your Name *</label>
-                                <input type="text" id="name" name="name" placeholder="Enter your name" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email">Your Email *</label>
-                                <input type="email" id="email" name="email" placeholder="Enter your email" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="message">Your Message *</label>
-                                <textarea id="message" name="message" rows="6" placeholder="Tell me about your opportunity or inquiry..." required></textarea>
-                            </div>
-                            
-                            <button type="submit" id="submitBtn" class="btn" style="width: 100%; background: #6c63ff; color: white;">
-                                <i class="fas fa-paper-plane"></i>
-                                <i class="fas fa-spinner"></i>
-                                Send Message
-                            </button>
-                        </form>
+<div style="flex: 1; min-width: 300px;">
+    <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); height: 100%;">
+        <h3 style="margin-bottom: 20px; color: #333;">Send a Message</h3>
+        
+        <!-- FORMSUBMIT.CO FORM -->
+        <form action="https://formsubmit.co/vasavi2972006@gmail.com" method="POST" id="contactForm">
+            <!-- Required FormSubmit fields -->
+            <input type="hidden" name="_subject" value="New Message from Portfolio">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://vasavi297.github.io/portfolio/contact.html?success=true">
+            <input type="hidden" name="_autoresponse" value="Thank you for your message! I'll get back to you soon.">
+            
+            <div class="form-group">
+                <label for="name">Your Name *</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Your Email *</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Your Message *</label>
+                <textarea id="message" name="message" rows="6" placeholder="Tell me about your opportunity or inquiry..." required></textarea>
+            </div>
+            
+            <button type="submit" id="submitBtn" class="btn" style="width: 100%;">
+                <i class="fas fa-paper-plane"></i>
+                <i class="fas fa-spinner"></i>
+                Send Message
+            </button>
+        </form>
+        
                         
                         <!-- Direct Email Option -->
                         <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; text-align: center;">
@@ -350,131 +358,36 @@
 
 
     <script>
-     
-
-// Mobile menu toggle
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-
-if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-        const icon = menuToggle.querySelector('i');
-        if (icon.classList.contains('fa-bars')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('formSuccess');
+    const errorMsg = document.getElementById('formError');
+    
+    // Check if success parameter is in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+        if (successMsg) {
+            successMsg.innerHTML = '<i class="fas fa-check-circle"></i> Message sent successfully! I\'ll get back to you soon.';
+            successMsg.style.display = 'flex';
         }
-    });
-}
-
-// Close mobile menu when clicking a link
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', function() {
-        if (navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    });
-});
-
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        
-        // Only handle anchor links on same page
-        if (href.startsWith('#') && href !== '#') {
-            e.preventDefault();
-            const targetElement = document.querySelector(href);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        }
-    });
-});
-
-// Set active nav link based on current page
-function setActiveNavLink() {
-    const currentPage = window.location.pathname.split('/').pop();
-    if (currentPage) {
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            const linkPage = link.getAttribute('href');
-            if (linkPage === currentPage || 
-               (currentPage === '' && linkPage === 'index.html') ||
-               (currentPage === 'index.html' && linkPage === 'index.html')) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
+    }
+    
+    if (form) {
+        form.addEventListener('submit', function() {
+            // Show loading
+            submitBtn.classList.add('btn-loading');
+            submitBtn.disabled = true;
+            
+            // Hide previous messages
+            if (successMsg) successMsg.style.display = 'none';
+            if (errorMsg) errorMsg.style.display = 'none';
+            
+            // FormSubmit will handle the rest
+            // It redirects to the _next URL after sending
         });
     }
-}
-
-// Add active class to nav links based on scroll position (for single page)
-window.addEventListener('scroll', function() {
-    const sections = document.querySelectorAll('section[id]');
-    const scrollPos = window.scrollY + 100;
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        const sectionId = section.getAttribute('id');
-        
-        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
 });
-
-// Initialize when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    setActiveNavLink();
-    console.log('Page loaded successfully');
-    
-  
-});
-
-// Simple form validation helper (if needed on other pages)
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-// Simple form validation helper
-function validateForm(formId) {
-    const form = document.getElementById(formId);
-    if (!form) return true;
-    
-    const inputs = form.querySelectorAll('input[required], textarea[required]');
-    for (let input of inputs) {
-        if (!input.value.trim()) {
-            alert(`Please fill in the ${input.name || 'required'} field.`);
-            input.focus();
-            return false;
-        }
-        
-        if (input.type === 'email' && !validateEmail(input.value)) {
-            alert('Please enter a valid email address.');
-            input.focus();
-            return false;
-        }
-    }
-    
-    return true;
-}
-    </script>
+</script>
 </body>
 </html>

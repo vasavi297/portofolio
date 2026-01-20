@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Success/Error Messages - FIXED: Removed display: block */
+        /* Success/Error Messages */
         .form-message {
             padding: 15px 20px;
             margin-bottom: 25px;
             border-radius: var(--radius);
-            display: none; /* Hidden by default */
+            display: none;
             text-align: center;
             font-weight: 600;
             align-items: center;
@@ -24,14 +24,12 @@
             background-color: rgba(40, 167, 69, 0.1);
             color: #28a745;
             border: 1px solid rgba(40, 167, 69, 0.3);
-            /* REMOVED: display: block */
         }
         
         .form-error {
             background-color: rgba(220, 53, 69, 0.1);
             color: #dc3545;
             border: 1px solid rgba(220, 53, 69, 0.3);
-            /* REMOVED: display: block */
         }
         
         /* Loading state */
@@ -57,10 +55,121 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        
+        /* Form styles */
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gray);
+            border-radius: var(--radius);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            gap: 15px;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        
+        .contact-item h4 {
+            margin-bottom: 5px;
+            color: var(--text);
+        }
+        
+        .contact-item p {
+            color: var(--light);
+            margin: 0;
+        }
+        
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-item a:hover {
+            color: var(--dark);
+            text-decoration: underline;
+        }
+        
+        /* Container styles */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Button styles */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background: var(--dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secondary {
+            background: var(--light);
+            color: var(--text);
+        }
+        
+        .btn-secondary:hover {
+            background: #e0e0e0;
+            color: var(--dark);
+        }
     </style>
 </head>
 <body>
-    <!-- Navigation (keep your existing navigation) -->
+    <!-- Navigation -->
     <header>
         <div class="container">
             <nav>
@@ -95,27 +204,31 @@
             </div>
             
             <!-- Form Messages (Hidden by default) -->
-            <div id="formSuccess" class="form-message form-success" style="display: none;">
-                <i class="fas fa-check-circle"></i> Message sent successfully! I'll get back to you soon.
+            <div id="formSuccess" class="form-message form-success">
+                <i class="fas fa-check-circle"></i> Your email client is opening. Please send the pre-filled email to contact me.
             </div>
             
-            <div id="formError" class="form-message form-error" style="display: none;">
-                <i class="fas fa-exclamation-circle"></i> Failed to send message. Please try again or email me directly.
+            <div id="formError" class="form-message form-error">
+                <i class="fas fa-exclamation-circle"></i> 
+                Please email me directly at 
+                <a href="mailto:vasavi2972006@gmail.com" style="color: #dc3545; text-decoration: underline; font-weight: bold;">
+                    vasavi2972006@gmail.com
+                </a>
             </div>
             
             <div class="contact-container" style="display: flex; gap: 50px; max-width: 1000px; margin: 0 auto; flex-wrap: wrap;">
-                <!-- Contact Info (Keep your existing contact info) -->
+                <!-- Contact Info -->
                 <div style="flex: 1; min-width: 300px;">
-                    <div style="background: white; padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); height: 100%;">
-                        <h3>Get in Touch</h3>
-                        <p style="margin-bottom: 40px;">I'm currently seeking internship opportunities and would love to connect with professionals in the field.</p>
+                    <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); height: 100%;">
+                        <h3 style="margin-bottom: 20px; color: #333;">Get in Touch</h3>
+                        <p style="margin-bottom: 40px; color: #666;">I'm currently seeking internship opportunities and would love to connect with professionals in the field.</p>
                         
                         <div class="contact-item">
                             <div class="contact-icon">
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div>
-                                <h4>Phone</h4>
+                                <h4 style="margin: 0 0 5px 0; color: #333;">Phone</h4>
                                 <p>+91 9492572155</p>
                             </div>
                         </div>
@@ -125,8 +238,8 @@
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div>
-                                <h4>Email</h4>
-                                <p>vasavi2972006@gmail.com</p>
+                                <h4 style="margin: 0 0 5px 0; color: #333;">Email</h4>
+                                <p><a href="mailto:vasavi2972006@gmail.com">vasavi2972006@gmail.com</a></p>
                             </div>
                         </div>
                         
@@ -135,8 +248,8 @@
                                 <i class="fab fa-linkedin"></i>
                             </div>
                             <div>
-                                <h4>LinkedIn</h4>
-                                <p>linkedin.com/in/vasavi29</p>
+                                <h4 style="margin: 0 0 5px 0; color: #333;">LinkedIn</h4>
+                                <p><a href="https://linkedin.com/in/vasavi29" target="_blank">linkedin.com/in/vasavi29</a></p>
                             </div>
                         </div>
                         
@@ -145,13 +258,13 @@
                                 <i class="fab fa-github"></i>
                             </div>
                             <div>
-                                <h4>GitHub</h4>
-                                <p>github.com/vasavi297</p>
+                                <h4 style="margin: 0 0 5px 0; color: #333;">GitHub</h4>
+                                <p><a href="https://github.com/vasavi297" target="_blank">github.com/vasavi297</a></p>
                             </div>
                         </div>
                         
-                        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--gray);">
-                            <h4 style="margin-bottom: 15px;">Quick Links</h4>
+                        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                            <h4 style="margin-bottom: 15px; color: #333;">Quick Links</h4>
                             <div style="display: flex; gap: 15px; flex-wrap: wrap;">
                                 <a href="Resume-Vasavi.pdf" download class="btn btn-secondary" style="padding: 10px 20px; font-size: 0.9rem;">
                                     <i class="fas fa-download"></i> Resume
@@ -164,35 +277,29 @@
                     </div>
                 </div>
                 
-                <!-- Contact Form (UPDATED FOR FORMSPREE) -->
+                <!-- Contact Form -->
                 <div style="flex: 1; min-width: 300px;">
-                    <div style="background: white; padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow); height: 100%;">
-                        <h3>Send a Message</h3>
+                    <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); height: 100%;">
+                        <h3 style="margin-bottom: 20px; color: #333;">Send a Message</h3>
                         
-                        <!-- FORMSPREE FORM -->
-                        <form id="contactForm" action="https://formspree.io/f/xreeplka" method="POST">
-                            <!-- Replace YOUR_FORM_ID_HERE with your actual Formspree ID -->
-                            
+                        <!-- Contact Form -->
+                        <form id="contactForm">
                             <div class="form-group">
-                                <label for="name" style="display: block; margin-bottom: 8px; font-weight: 600;">Your Name *</label>
+                                <label for="name">Your Name *</label>
                                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
                             </div>
                             
                             <div class="form-group">
-                                <label for="email" style="display: block; margin-bottom: 8px; font-weight: 600;">Your Email *</label>
+                                <label for="email">Your Email *</label>
                                 <input type="email" id="email" name="email" placeholder="Enter your email" required>
                             </div>
                             
                             <div class="form-group">
-                                <label for="message" style="display: block; margin-bottom: 8px; font-weight: 600;">Your Message *</label>
+                                <label for="message">Your Message *</label>
                                 <textarea id="message" name="message" rows="6" placeholder="Tell me about your opportunity or inquiry..." required></textarea>
                             </div>
                             
-                            <!-- Hidden fields for better email formatting -->
-                            <input type="hidden" name="_subject" value="New Message from Portfolio">
-                            <input type="text" name="_gotcha" style="display:none">
-                            
-                            <button type="submit" id="submitBtn" class="btn" style="width: 100%;">
+                            <button type="submit" id="submitBtn" class="btn" style="width: 100%; background: #6c63ff; color: white;">
                                 <i class="fas fa-paper-plane"></i>
                                 <i class="fas fa-spinner"></i>
                                 Send Message
@@ -200,8 +307,8 @@
                         </form>
                         
                         <!-- Direct Email Option -->
-                        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid var(--gray); text-align: center;">
-                            <p style="margin-bottom: 15px; color: var(--text);">Or email me directly:</p>
+                        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; text-align: center;">
+                            <p style="margin-bottom: 15px; color: #666;">Or email me directly:</p>
                             <a href="mailto:vasavi2972006@gmail.com?subject=Portfolio Inquiry" class="btn btn-secondary" style="width: 100%;">
                                 <i class="fas fa-envelope"></i> Email Directly
                             </a>
@@ -212,112 +319,162 @@
         </div>
     </section>
 
-    <!-- Footer (keep your existing footer) -->
-    <footer>
+    <!-- Footer -->
+    <footer style="background: #333; color: white; padding: 40px 0; margin-top: 80px;">
         <div class="container">
             <div style="color: white; margin-bottom: 20px;">
                 <h3 style="color: white; margin-bottom: 15px;">Vasavi Poppopula</h3>
                 <p>B.Tech AI & ML Student | Aspiring Developer</p>
             </div>
             
-            <div class="social-links">
-                <a href="https://github.com/vasavi297" class="social-link" target="_blank">
+            <div class="social-links" style="display: flex; gap: 20px; justify-content: center; margin: 30px 0;">
+                <a href="https://github.com/vasavi297" class="social-link" target="_blank" style="color: white; font-size: 1.5rem;">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://linkedin.com/in/vasavi29" class="social-link" target="_blank">
+                <a href="https://linkedin.com/in/vasavi29" class="social-link" target="_blank" style="color: white; font-size: 1.5rem;">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="https://www.geeksforgeeks.org/profile/vasavi25zpd" class="social-link" target="_blank">
+                <a href="https://www.geeksforgeeks.org/profile/vasavi25zpd" class="social-link" target="_blank" style="color: white; font-size: 1.5rem;">
                     <i class="fas fa-code"></i>
                 </a>
-                <a href="https://leetcode.com/u/Vasavi_297/" class="social-link" target="_blank">
+                <a href="https://leetcode.com/u/Vasavi_297/" class="social-link" target="_blank" style="color: white; font-size: 1.5rem;">
                     <i class="fas fa-laptop-code"></i>
                 </a>
             </div>
             
-            <div class="copyright">
+            <div class="copyright" style="text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
                 <p>&copy; 2026 Vasavi Poppopula. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    
-    <!-- Formspree Submission Script - FIXED -->
+
     <script>
-        // Form submission handling
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('contactForm');
-            const submitBtn = document.getElementById('submitBtn');
-            const successMsg = document.getElementById('formSuccess');
-            const errorMsg = document.getElementById('formError');
-            
-            // Ensure messages are hidden on page load
-            if (successMsg) successMsg.style.display = 'none';
-            if (errorMsg) errorMsg.style.display = 'none';
-            
-            if (form) {
-                form.addEventListener('submit', async function(e) {
-                    e.preventDefault();
-                    
-                    // Show loading state
-                    submitBtn.classList.add('btn-loading');
-                    submitBtn.disabled = true;
-                    
-                    // Hide previous messages
-                    if (successMsg) successMsg.style.display = 'none';
-                    if (errorMsg) errorMsg.style.display = 'none';
-                    
-                    try {
-                        // Get form data
-                        const formData = new FormData(form);
-                        
-                        // Send to Formspree
-                        const response = await fetch(form.action, {
-                            method: 'POST',
-                            body: formData,
-                            headers: {
-                                'Accept': 'application/json'
-                            }
-                        });
-                        
-                        if (response.ok) {
-                            // Success
-                            if (successMsg) {
-                                successMsg.style.display = 'flex';
-                                // Scroll to success message
-                                setTimeout(() => {
-                                    successMsg.scrollIntoView({ 
-                                        behavior: 'smooth', 
-                                        block: 'center' 
-                                    });
-                                }, 100);
-                            }
-                            form.reset();
-                        } else {
-                            // Error
-                            throw new Error('Form submission failed');
-                        }
-                    } catch (error) {
-                        // Show error message
-                        if (errorMsg) {
-                            errorMsg.style.display = 'flex';
-                            // Scroll to error message
-                            setTimeout(() => {
-                                errorMsg.scrollIntoView({ 
-                                    behavior: 'smooth', 
-                                    block: 'center' 
-                                });
-                            }, 100);
-                        }
-                    } finally {
-                        // Reset button state
-                        submitBtn.classList.remove('btn-loading');
-                        submitBtn.disabled = false;
-                    }
+     
+
+// Mobile menu toggle
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        const icon = menuToggle.querySelector('i');
+        if (icon.classList.contains('fa-bars')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+}
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function() {
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        // Only handle anchor links on same page
+        if (href.startsWith('#') && href !== '#') {
+            e.preventDefault();
+            const targetElement = document.querySelector(href);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
                 });
             }
+        }
+    });
+});
+
+// Set active nav link based on current page
+function setActiveNavLink() {
+    const currentPage = window.location.pathname.split('/').pop();
+    if (currentPage) {
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            const linkPage = link.getAttribute('href');
+            if (linkPage === currentPage || 
+               (currentPage === '' && linkPage === 'index.html') ||
+               (currentPage === 'index.html' && linkPage === 'index.html')) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
         });
+    }
+}
+
+// Add active class to nav links based on scroll position (for single page)
+window.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('section[id]');
+    const scrollPos = window.scrollY + 100;
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+});
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    setActiveNavLink();
+    console.log('Page loaded successfully');
+    
+  
+});
+
+// Simple form validation helper (if needed on other pages)
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+// Simple form validation helper
+function validateForm(formId) {
+    const form = document.getElementById(formId);
+    if (!form) return true;
+    
+    const inputs = form.querySelectorAll('input[required], textarea[required]');
+    for (let input of inputs) {
+        if (!input.value.trim()) {
+            alert(`Please fill in the ${input.name || 'required'} field.`);
+            input.focus();
+            return false;
+        }
+        
+        if (input.type === 'email' && !validateEmail(input.value)) {
+            alert('Please enter a valid email address.');
+            input.focus();
+            return false;
+        }
+    }
+    
+    return true;
+}
     </script>
 </body>
 </html>

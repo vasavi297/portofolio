@@ -167,6 +167,10 @@
             color: var(--dark);
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+    emailjs.init("PMqs6BZBZM5CvHTjl");
+</script>
 </head>
 <body>
     <!-- Navigation -->
@@ -282,36 +286,32 @@
     <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); height: 100%;">
         <h3 style="margin-bottom: 20px; color: #333;">Send a Message</h3>
         
-        <!-- FORMSUBMIT.CO FORM -->
-        <form action="https://formsubmit.co/vasavi2972006@gmail.com" method="POST" id="contactForm">
-            <!-- Required FormSubmit fields -->
-            <input type="hidden" name="_subject" value="New Message from Portfolio">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://vasavi297.github.io/portfolio/contact.html?success=true">
-            <input type="hidden" name="_autoresponse" value="Thank you for your message! I'll get back to you soon.">
-            
-            <div class="form-group">
-                <label for="name">Your Name *</label>
-                <input type="text" id="name" name="name" placeholder="Enter your name" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Your Email *</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="message">Your Message *</label>
-                <textarea id="message" name="message" rows="6" placeholder="Tell me about your opportunity or inquiry..." required></textarea>
-            </div>
-            
-            <button type="submit" id="submitBtn" class="btn" style="width: 100%;">
-                <i class="fas fa-paper-plane"></i>
-                <i class="fas fa-spinner"></i>
-                Send Message
-            </button>
-        </form>
+      <form id="contactForm">
+    <!-- Add these hidden fields -->
+    <input type="hidden" name="to_name" value="Vasavi">
+    <input type="hidden" name="to_email" value="vasavi2972006@gmail.com">
+    
+    <div class="form-group">
+        <label for="name">Your Name *</label>
+        <input type="text" id="name" name="from_name" placeholder="Enter your name" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="email">Your Email *</label>
+        <input type="email" id="email" name="from_email" placeholder="Enter your email" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="message">Your Message *</label>
+        <textarea id="message" name="message" rows="6" placeholder="Tell me about your opportunity or inquiry..." required></textarea>
+    </div>
+    
+    <button type="submit" id="submitBtn" class="btn" style="width: 100%;">
+        <i class="fas fa-paper-plane"></i>
+        <i class="fas fa-spinner"></i>
+        Send Message
+    </button>
+</form>
         
                         
                         <!-- Direct Email Option -->
@@ -364,27 +364,87 @@ document.addEventListener('DOMContentLoaded', function() {
     const successMsg = document.getElementById('formSuccess');
     const errorMsg = document.getElementById('formError');
     
-    // Check if success parameter is in URL
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('success') === 'true') {
-        if (successMsg) {
-            successMsg.innerHTML = '<i class="fas fa-check-circle"></i> Message sent successfully! I\'ll get back to you soon.';
-            successMsg.style.display = 'flex';
-        }
-    }
-    
     if (form) {
-        form.addEventListener('submit', function() {
-            // Show loading
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            
+            // Add current date to form BEFORE sending
+            let dateField = form.querySelector('input[name="date"]');
+            if (!dateField) {
+                dateField = document.createElement('input');
+                dateField.type = 'hidden';
+                dateField.name = 'date';
+                form.appendChild(dateField);
+            }
+            dateField.value = new Date().toLocaleString();
+            
             submitBtn.classList.add('btn-loading');
             submitBtn.disabled = true;
             
-            // Hide previous messages
-            if (successMsg) successMsg.style.display = 'none';
-            if (errorMsg) errorMsg.style.display = 'none';
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
             
-            // FormSubmit will handle the rest
-            // It redirects to the _next URL after sending
+            console.log('Sending email with data:', {
+                to_name: 'Vasavi',
+                to_email: 'vasavi2972006@gmail.com',
+                from_name: document.getElementById('name').value,
+                from_email: document.getElementById('email').value,
+                message: document.getElementById('message').value,
+                date: dateField.value  // Added date here
+            });
+            
+            // Send with EmailJS
+            emailjs.sendForm(
+                'service_zan96ir',   // Service ID
+                'template_uezbrsi',  // Template ID
+                form
+            )
+            .then((response) => {
+                console.log('SUCCESS!', response.status, response.text);
+                successMsg.innerHTML = `
+                    <i class="fas fa-check-circle"></i> 
+                    Thank you for your message! I'll get back to you soon.
+                `;
+                successMsg.style.display = 'flex';
+                form.reset();
+                
+                // Remove date field after sending
+                if (dateField.parentNode) {
+                    dateField.parentNode.removeChild(dateField);
+                }
+            })
+            .catch((error) => {
+                console.error('FAILED...', error);
+                console.log('Error details:', error.text || error);
+                
+                errorMsg.innerHTML = `
+                    <i class="fas fa-exclamation-circle"></i> 
+                    <div>
+                        <p style="margin: 0;">Error: ${error.text || 'Please email directly'}</p>
+                        <p style="margin: 5px 0 0 0;">
+                            <a href="mailto:vasavi2972006@gmail.com" 
+                               style="color: #dc3545; text-decoration: underline; font-weight: bold;">
+                                vasavi2972006@gmail.com
+                            </a>
+                        </p>
+                    </div>
+                `;
+                errorMsg.style.display = 'flex';
+                
+                // Remove date field on error too
+                if (dateField.parentNode) {
+                    dateField.parentNode.removeChild(dateField);
+                }
+            })
+            .finally(() => {
+                submitBtn.classList.remove('btn-loading');
+                submitBtn.disabled = false;
+            });
         });
     }
 });

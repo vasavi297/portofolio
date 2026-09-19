@@ -174,28 +174,30 @@
 </head>
 <body>
     <!-- Navigation -->
-    <header>
-        <div class="container">
-            <nav>
-                <a href="index.html" class="logo">
-                    <div class="logo-img" style="overflow: hidden; border-radius: 50%; width: 40px; height: 40px;">
-                        <img src="image.png" alt="Vasavi" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    Vasavi
-                </a>
-                <div class="menu-toggle" id="menuToggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="skills.html">Skills</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li>
-                </ul>
-            </nav>
+   <header>
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            <img src="image.png" alt="Vasavi">
+            <span>Vasavi</span>
+        </a>
+
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
         </div>
-    </header>
+
+    </div>
+</header>
 
     <!-- Contact Section -->
     <section id="contact" style="padding: 80px 0;">
@@ -338,33 +340,65 @@
     </section>
 
     <!-- Footer -->
-    <footer style="background: #333; color: white; padding: 40px 0; margin-top: 80px;">
-        <div class="container">
-            <div style="color: white; margin-bottom: 20px;">
-                <h3 style="color: white; margin-bottom: 15px;">Vasavi Poppopula</h3>
-                <p>B.Tech AI & ML Student | Aspiring Developer</p>
+    <footer>
+    <div class="container">
+
+        <div class="footer-content">
+
+            <div class="footer-info">
+
+                <h3>Vasavi Poppoppula</h3>
+
+                <p>
+                    AI & ML Student | Java Developer
+                </p>
+
             </div>
-            
-            <div class="social-links" style="display: flex; gap: 20px; justify-content: center; margin: 30px 0;">
-                <a href="https://github.com/vasavi297" class="social-link" target="_blank" style="color: white; font-size: 1.5rem;">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://linkedin.com/in/vasavi29" class="social-link" target="_blank" style="color: white; font-size: 1.5rem;">
+
+
+            <div class="footer-social">
+
+                <a href="https://linkedin.com/in/vasavi29"
+                   target="_blank"
+                   aria-label="LinkedIn">
+
                     <i class="fab fa-linkedin-in"></i>
+
                 </a>
-                <a href="https://www.geeksforgeeks.org/profile/vasavi25zpd" class="social-link" target="_blank" style="color: white; font-size: 1.5rem;">
-                    <i class="fas fa-code"></i>
+
+
+                <a href="https://github.com/vasavi297"
+                   target="_blank"
+                   aria-label="GitHub">
+
+                    <i class="fab fa-github"></i>
+
                 </a>
-                <a href="https://leetcode.com/u/Vasavi_297/" class="social-link" target="_blank" style="color: white; font-size: 1.5rem;">
-                    <i class="fas fa-laptop-code"></i>
+
+
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vasavi2972006@gmail.com"
+                   target="_blank"
+                   aria-label="Email">
+
+                    <i class="fas fa-envelope"></i>
+
                 </a>
+
             </div>
-            
-            <div class="copyright" style="text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
-                <p>&copy; 2026 Vasavi Poppopula. All rights reserved.</p>
-            </div>
+
         </div>
-    </footer>
+
+
+        <div class="copyright">
+
+            <p>
+                &copy; 2026 Vasavi Poppoppula. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
+</footer>
 
 
     <script>

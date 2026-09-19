@@ -1,140 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me | Vasavi Poppopula</title>
+
+    <title>About Me | Vasavi Poppoppula</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Main CSS -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
-    <!-- Navigation -->
+
+    <!-- Header -->
     <header>
-        <div class="container">
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                <img src="image.png" alt="Vasavi">
+                <span>Vasavi</span>
+            </a>
+
             <nav>
-               <a href="index.html" class="logo">
-    <div class="logo-img" style="overflow: hidden; border-radius: 50%; width: 40px; height: 40px;">
-        <img src="image.png" alt="Vasavi" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
-    Vasavi
-</a>
-                <div class="menu-toggle" id="menuToggle">
-                    <i class="fas fa-bars"></i>
-                </div>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html" class="active">About</a></li>
-                    <li><a href="skills.html">Skills</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+
+                    <li>
+                        <a href="skills.html">Skills</a>
+                    </li>
+
+                    <li>
+                        <a href="projects.html">Projects</a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+
                 </ul>
             </nav>
+
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" style="padding: 80px 0;">
-        <div class="container">
-            <div style="max-width: 1000px; margin: 0 auto;">
-                <!-- Page Title -->
-             <div style="text-align: left; margin-bottom: 50px;">
-    <h1 style="font-weight: 800; font-size: 2.8rem;">About Me</h1>
-    <div style="width: 80px; height: 4px; background: var(--primary); margin: 15px 0 25px 0; border-radius: 2px;"></div>
-</div>
 
-                <!-- About Me Content -->
-                <div style="display: flex; flex-direction: row; align-items: flex-start; gap: 50px; margin-bottom: 60px; flex-wrap: wrap;">
-                    <!-- Profile Image -->
-                    <div style="flex: 0 0 300px;">
-                        <div style="width: 300px; height: 300px; border-radius: 50%; overflow: hidden; box-shadow: var(--shadow); border: 8px solid white;">
-                            <img src="my_image.png" alt="Vasavi Poppopula" 
-                                 style="width: 100%; height: 100%; object-fit: cover; object-position: center 30%;">
-                        </div>
-                    </div>
-                    
-                    <!-- About Text -->
-                    <div style="flex: 1; min-width: 300px;">
-                        <h2 style="margin-bottom: 20px;">Vasavi Poppopula</h2>
-                        <p style="font-size: 1.2rem; color: var(--primary); font-weight: 600; margin-bottom: 25px;">
-                            AI/ML Enthusiast | Web Developer
-                        </p>
-                        
-                        <div style="margin-bottom: 30px;">
-                            <p style="margin-bottom: 15px; line-height: 1.7;">
-                                I'm a passionate 3rd year B.Tech student specializing in Artificial Intelligence and Machine Learning at Sri Vasavi Engineering College. With a strong academic record (CGPA: 9.20) and a deep curiosity for technology, I'm constantly exploring the intersection of AI/ML and practical web development.
-                            </p>
-                           
-                            <p style="line-height: 1.7;">
-                                I believe in continuous learning and practical application. Through projects, certifications, and hands-on experience, I'm developing the skills needed to create meaningful technology solutions that can make a positive impact.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Education Section -->
-                <div>
-                    <div class="section-title" style="text-align: left;">
-                        <h2>Education</h2>
-                    </div>
-                    
-                    <div style="display: grid; gap: 25px; margin-top: 20px;">
-                        <div class="edu-card">
-                            <div class="edu-header">
-                                <div class="edu-title">B.Tech in Artificial Intelligence and Machine Learning</div>
-                                <div class="edu-duration">2023 - Present</div>
-                            </div>
-                            <div class="edu-institution">Sri Vasavi Engineering College, Pedatadepalli</div>
-                            <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 15px;">
-                                <div class="edu-grade">CGPA: 9.20</div>
-                                <div style="font-weight: 600; color: var(--dark); background: rgba(108, 99, 255, 0.1); padding: 5px 15px; border-radius: 20px;">
-                                    Currently in 3rd Year
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="edu-card">
-                            <div class="edu-header">
-                                <div class="edu-title">Intermediate (MPC)</div>
-                                <div class="edu-duration">2021 - 2023</div>
-                            </div>
-                            <div class="edu-institution">Aditya Junior College, Tadepalligudem</div>
-                            <div class="edu-grade" style="margin-top: 15px;">Score: 98%</div>
-                        </div>
-                    </div>
-                </div>
+    <!-- About Section -->
+    <section class="about-section">
+
+        <div class="container">
+
+            <!-- Page Title -->
+            <div class="section-title">
+                <h1>About Me</h1>
+                <p>Get to know me and my academic journey</p>
             </div>
+
+
+            <!-- About Content -->
+            <div class="about-content">
+
+                <!-- Profile Image -->
+                <div class="about-image">
+
+                    <img src="my_image.png"
+                             alt="Vasavi Poppoppula"
+                             style="width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                    object-position: center 40%;">
+
+                </div>
+
+
+                <!-- About Text -->
+                <div class="about-text">
+
+                    <h2>
+                        AI & ML Student | Java Developer
+                    </h2>
+
+                    <p>
+                        I am an Artificial Intelligence and Machine Learning
+                        undergraduate with a strong foundation in Java, SQL,
+                        Data Structures, Object-Oriented Programming, and
+                        Database Management Systems.
+                    </p>
+
+                    <p>
+                        I am interested in software development and enjoy
+                        solving problems, learning new technologies, and
+                        building practical applications. I have experience
+                        working with React, Spring Boot, AWS, MySQL, and
+                        Docker.
+                    </p>
+
+                    <p>
+                        I continuously work on improving my technical skills
+                        and applying them to real-world software development
+                        challenges.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Education -->
+            <div class="education-section">
+
+                <div class="section-title">
+                    <h2>Education</h2>
+                </div>
+
+
+                <!-- B.Tech -->
+                <div class="edu-card">
+
+                    <div class="edu-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+
+                    <div class="edu-content">
+
+                        <h3>
+                            B.Tech in Artificial Intelligence and Machine Learning
+                        </h3>
+
+                        <h4>
+                            Sri Vasavi Engineering College
+                        </h4>
+
+                        <p class="edu-date">
+                            Sep 2023 - Present
+                        </p>
+
+                        <p>
+                            CGPA:
+                            <strong>9.24 / 10</strong>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Intermediate -->
+                <div class="edu-card">
+
+                    <div class="edu-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+
+                    <div class="edu-content">
+
+                        <h3>
+                            Intermediate
+                        </h3>
+
+                        <h4>
+                            Aditya Junior College
+                        </h4>
+
+                        <p class="edu-date">
+                            Jun 2021 - Apr 2023
+                        </p>
+
+                        <p>
+                            Percentage:
+                            <strong>98.1%</strong>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SSC -->
+                <div class="edu-card">
+
+                    <div class="edu-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+
+                    <div class="edu-content">
+
+                        <h3>
+                            Secondary School Certificate (SSC)
+                        </h3>
+
+                        <h4>
+                            Kimberley English Medium School
+                        </h4>
+
+                        <p class="edu-date">
+                            Jun 2020 - Apr 2021
+                        </p>
+
+                        <p>
+                            Percentage:
+                            <strong>99.3%</strong>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Internship -->
+            <div class="experience-section">
+
+                <div class="section-title">
+                    <h2>Internship</h2>
+                </div>
+
+
+                <div class="exp-card">
+
+                    <div class="exp-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+
+                    <div class="exp-content">
+
+                        <h3>
+                            APSSDC Summer Online Internship
+                        </h3>
+
+                        <h4>
+                            AWS Cloud Computing & DevOps
+                        </h4>
+
+                        <p class="exp-date">
+                            May 2026 - July 2026
+                        </p>
+
+                        <ul>
+                            <li>
+                                Completed a virtual internship focused on
+                                AWS Cloud Computing and DevOps.
+                            </li>
+
+                            <li>
+                                Developed practical knowledge of AWS services,
+                                Linux administration, Git, and application
+                                deployment.
+                            </li>
+
+                            <li>
+                                Applied cloud and DevOps concepts through a
+                                cloud-based internship project.
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
+
     </section>
+
 
     <!-- Footer -->
     <footer>
+
         <div class="container">
-            <div style="color: white; margin-bottom: 20px;">
-                <h3 style="color: white; margin-bottom: 15px;">Vasavi Poppopula</h3>
-                <p>AI & ML Student | Aspiring Developer | Problem Solver</p>
+
+            <div class="footer-content">
+
+                <div class="footer-info">
+
+                    <h3>
+                        Vasavi Poppoppula
+                    </h3>
+
+                    <p>
+                        AI & ML Student | Java Developer
+                    </p>
+
+                </div>
+
+
+                <!-- Only LinkedIn, GitHub and Mail -->
+                <div class="footer-social">
+
+                    <a href="https://linkedin.com/in/vasavi29"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       title="LinkedIn">
+
+                        <i class="fab fa-linkedin-in"></i>
+
+                    </a>
+
+
+                    <a href="https://github.com/vasavi297"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       title="GitHub">
+
+                        <i class="fab fa-github"></i>
+
+                    </a>
+
+
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vasavi2972006@gmail.com"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       title="Email">
+
+                        <i class="fas fa-envelope"></i>
+
+                    </a>
+
+                </div>
+
             </div>
-            
-            <div class="social-links">
-                <a href="https://github.com/vasavi297" class="social-link" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://linkedin.com/in/vasavi29" class="social-link" target="_blank">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://www.geeksforgeeks.org/profile/vasavi25zpd" class="social-link" target="_blank">
-                    <i class="fas fa-code"></i>
-                </a>
-                <a href="https://leetcode.com/u/Vasavi_297/" class="social-link" target="_blank">
-                    <i class="fas fa-laptop-code"></i>
-                </a>
-            </div>
-            
+
+
             <div class="copyright">
-                <p>&copy; 2026 Vasavi Poppopula. All rights reserved.</p>
+
+                <p>
+                    &copy; 2026 Vasavi Poppoppula. All Rights Reserved.
+                </p>
+
             </div>
+
         </div>
+
     </footer>
 
+
+    <!-- JavaScript -->
     <script src="script.js"></script>
+
 </body>
+
 </html>

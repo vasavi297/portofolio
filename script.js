@@ -1,48 +1,103 @@
-// script.js - Shared across all pages
+/* =================================
+   MOBILE MENU
+================================= */
 
-// Mobile menu toggle
 function initMobileMenu() {
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    if (!menuToggle || !navLinks) {
+        return;
     }
-}
 
+    menuToggle.addEventListener("click", function () {
 
+        navLinks.classList.toggle("active");
 
-// Set active navigation link based on current page
-function setActiveNavLink() {
-    const currentPage = window.location.pathname.split('/').pop();
-    const navLinks = document.querySelectorAll('.nav-links a');
-    
-    navLinks.forEach(link => {
-        const linkPage = link.getAttribute('href');
-        if (linkPage === currentPage || 
-            (currentPage === '' && linkPage === 'index.html') ||
-            (currentPage === '' && linkPage === '#home')) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
+        const icon = menuToggle.querySelector("i");
+
+        if (icon) {
+
+            if (navLinks.classList.contains("active")) {
+
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-xmark");
+
+            } else {
+
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+
+            }
+
         }
+
     });
+
+
+    /* Close menu when a navigation link is clicked */
+
+    const links = navLinks.querySelectorAll("a");
+
+    links.forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            navLinks.classList.remove("active");
+
+            const icon = menuToggle.querySelector("i");
+
+            if (icon) {
+
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+
+            }
+
+        });
+
+    });
+
 }
 
- 
-// Initialize everything when page loads
-document.addEventListener('DOMContentLoaded', function() {
+
+/* =================================
+   ACTIVE NAVIGATION LINK
+================================= */
+
+function setActiveNavLink() {
+
+    const currentPage =
+        window.location.pathname.split("/").pop() || "index.html";
+
+    const navLinks =
+        document.querySelectorAll(".nav-links a");
+
+    navLinks.forEach(function (link) {
+
+        const linkPage =
+            link.getAttribute("href").split("/").pop();
+
+        link.classList.remove("active");
+
+        if (linkPage === currentPage) {
+            link.classList.add("active");
+        }
+
+    });
+
+}
+
+
+/* =================================
+   PAGE LOAD
+================================= */
+
+document.addEventListener("DOMContentLoaded", function () {
+
     initMobileMenu();
-    initContactForm();
+
     setActiveNavLink();
-   
+
 });
